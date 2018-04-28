@@ -93,7 +93,7 @@ class ObjectSetTable extends ZfQueryBasedTable
 
         $query
             ->group('os.id')
-            ->where('os.object_type = ?', 'template')
+            ->where('os.object_type IN (?)', array('template', 'external_template'))
             ->order('os.object_name');
 
         return $query;

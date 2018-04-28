@@ -94,7 +94,7 @@ abstract class ObjectController extends ActionController
             $form->setPreferredObjectType($oType);
         }
 
-        if ($oType === 'template') {
+        if ($oType === 'template' or $oType === 'external_template') {
             $this->addTemplate();
         } else {
             $this->addObject();
@@ -102,6 +102,7 @@ abstract class ObjectController extends ActionController
 
         $form->handleRequest();
         $this->content()->add($form);
+
     }
 
     public function editAction()

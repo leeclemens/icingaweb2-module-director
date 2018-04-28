@@ -102,7 +102,7 @@ class IcingaTemplateRepository
             ->order('object_name');
 
         if ($type !== 'command') {
-            $query->where('object_type = ?', 'template');
+            $query->where('object_type IN (?)', array('template', 'external_template'));
         }
 
         if (in_array($type, ['host', 'service'])) {
