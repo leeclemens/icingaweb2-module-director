@@ -349,8 +349,8 @@ class TemplateTree
             );
         } else {
             $joinCondition = $db->quoteInto(
-                "p.id = i.parent_${type}_id AND p.object_type = ?",
-                'template'
+                "p.id = i.parent_${type}_id AND p.object_type IN (?)",
+                array('template', 'external_template')
             );
         }
 
@@ -375,8 +375,8 @@ class TemplateTree
 
         if ($type !== 'command') {
             $query->where(
-                'o.object_type = ?',
-                'template'
+                'o.object_type IN (?)',
+                array('template', 'external_template')
             );
         }
         // echo '<pre style="padding-top: 6em">' . $query . '</pre>';

@@ -115,7 +115,7 @@ class TemplatesTable extends ZfQueryBasedTable
             ['o' => "icinga_${type}"],
             $columns
         )->where(
-            "o.object_type = 'template'"
+            "o.object_type IN ('template', 'external_template')"
         )->order('o.object_name');
 
         return $this->applyRestrictions($query);
