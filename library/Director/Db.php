@@ -659,7 +659,9 @@ class Db extends DbConnection
 
     public function enumIcingaTemplates($type, $filters = array())
     {
-        $filters = array('object_type = ?' => 'template') + $filters;
+        $filters = array(
+                'object_type IN (?)' => array('template', 'external_template')
+            ) + $filters;
         return $this->enum('icinga_' . $type, null, $filters);
     }
 
