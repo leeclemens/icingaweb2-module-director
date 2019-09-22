@@ -151,7 +151,7 @@ class SuggestController extends ActionController
         $query = $db->select()
             ->from('icinga_host', 'object_name')
             ->order('object_name')
-            ->where("object_type = 'template'")
+            ->where("object_type IN ('template', 'external_template')")
             ->where('template_choice_id IS NULL');
         return $db->fetchCol($query);
     }

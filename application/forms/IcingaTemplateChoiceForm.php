@@ -106,7 +106,7 @@ class IcingaTemplateChoiceForm extends DirectorObjectForm
                 'k' => 'o.object_name',
                 'v' => 'o.object_name',
             ]
-        )->where("o.object_type = 'template'");
+        )->where("o.object_type IN ('template', 'external_template')");
         if ($object->hasBeenLoadedFromDb()) {
             $query->where(
                 'o.template_choice_id IS NULL OR o.template_choice_id = ?',
