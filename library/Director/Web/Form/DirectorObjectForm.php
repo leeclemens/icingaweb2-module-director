@@ -282,7 +282,7 @@ abstract class DirectorObjectForm extends DirectorForm
 
     public function isTemplate()
     {
-        return $this->getSentOrObjectValue('object_type') === 'template';
+        return $this->getSentOrObjectValue('object_type') === 'template' || $this->getSentOrObjectValue('object_type') === 'external_template';
     }
 
     // TODO: move to a subform

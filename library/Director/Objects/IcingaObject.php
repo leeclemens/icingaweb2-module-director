@@ -1457,13 +1457,13 @@ abstract class IcingaObject extends DbObject implements IcingaConfigRenderer
     public function isTemplate()
     {
         return $this->hasProperty('object_type')
-            && $this->get('object_type') === 'template';
+            && ($this->get('object_type') === 'template' || $this->get('object_type') === 'external_template');
     }
 
     public function isExternal()
     {
         return $this->hasProperty('object_type')
-            && $this->get('object_type') === 'external_object';
+            && ($this->get('object_type') === 'external_object' || $this->get('object_type') === 'external_template');
     }
 
     public function isApplyRule()
